@@ -4,8 +4,15 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name]-[hash]-v2.js`,
+      }
+    }
+  },
   server: {
-    port: 5174,        // 5173'u baska proje kullaniyor, biz 5174'te calisiyoruz
-    strictPort: true,  // 5174 doluysa baska porta kaymasin, hata versin (karisiklik olmasin)
+    port: 5174,
+    strictPort: true,
   },
 });
