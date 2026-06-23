@@ -18,12 +18,14 @@ from app.routers import cihazlar, urunler, auth, admin, siparisler
 
 app = FastAPI(title="ThermalGrid API")
 
-# CORS: React frontend (localhost:5173) backend'e (localhost:8000)
-# istek atarken tarayici engellemesin diye izin veriyoruz.
+# CORS: React frontend backend'e istek atarken tarayici engellemesin diye izin veriyoruz.
+# Vercel'de frontend ayri bir domainde (ve preview deploy'larda domain her seferinde
+# degisiyor), o yuzden tum origin'lere izin veriyoruz. Giris token'i Authorization
+# header'inda gidiyor (cookie kullanmiyoruz) -> allow_credentials=False yeterli ve dogru.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5174"],   # frontend bu portta calisiyor
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
