@@ -22,7 +22,7 @@ from app.security import rol_gerekli, get_current_user
 router = APIRouter(prefix="/urunler", tags=["Urunler"])
 
 # Yuklenen fotograflarin kaydedilecegi klasor
-UPLOAD_DIR = os.path.join("static", "uploads")
+UPLOAD_DIR = os.path.join("/tmp", "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)   # klasor yoksa olustur
 
 IZINLI_UZANTILAR = [".jpg", ".jpeg", ".png", ".webp"]
