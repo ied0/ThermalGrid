@@ -1,1 +1,1 @@
-echo python-3.12 > C:\Users\ieren\Desktop\ThermalGrid\backend\runtime.txt
+python-3.12 
