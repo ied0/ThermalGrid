@@ -1,0 +1,10 @@
+# ThermalGrid backend - gerekli paketler
+# Versiyonları sabitledim ki hocanın bilgisayarında da aynı şekilde çalışsın
+fastapi==0.111.0
+uvicorn==0.30.1          # sunucuyu çalıştırmak için (uvicorn app.main:app)
+sqlalchemy>=2.0.36       # ORM - tabloları Python sınıfı olarak yazmamızı sağlıyor (3.14 için >=2.0.36 şart)
+psycopg[binary]==3.2.13  # PostgreSQL sürücüsü (v3, Python 3.14 ile uyumlu)
+python-dotenv==1.0.1     # .env dosyasındaki ayarları okumak için
+bcrypt>=4.1              # şifreleri güvenli şekilde hash'lemek için
+PyJWT==2.9.0             # giriş sonrası token (JWT) üretmek için
+email-validator>=2.0     # kayıt olurken email formatını kontrol etmek için

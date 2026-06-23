@@ -1,0 +1,10 @@
+/* Tailwind'in uc temel katmani. Bu satirlar olmadan hicbir Tailwind
+   class'i calismaz. Tailwind bunlari gercek CSS'e ceviriyor. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sayfanin geneli icin kucuk bir arka plan rengi (acik gri) */
+body {
+  background-color: #f3f4f6;
+}

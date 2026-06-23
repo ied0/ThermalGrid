@@ -1,0 +1,23 @@
+# ThermalGrid icin PostgreSQL'i Docker ile ayaga kaldiriyoruz.
+# Boylece bilgisayara ayrica Postgres kurmaya gerek kalmiyor.
+# Calistirmak icin:  docker-compose up -d
+
+services:
+  db:
+    image: postgres:16
+    container_name: thermalgrid_db
+    restart: always
+    environment:
+      POSTGRES_USER: thermalgrid
+      POSTGRES_PASSWORD: 1234          # demo proje oldugu icin basit sifre, gercek projede boyle yapma!
+      POSTGRES_DB: thermalgrid_db
+    ports:
+      # Disarida 5433 kullaniyoruz cunku 5432'yi baska bir proje tutuyordu.
+      # Sol taraf host portu (bizim baglanacagimiz), sag taraf container ici port.
+      - "5433:5432"
+    volumes:
+      - thermalgrid_data:/var/lib/postgresql/data
+
+# Veritabani verisi container silinince kaybolmasin diye named volume
+volumes:
+  thermalgrid_data:
