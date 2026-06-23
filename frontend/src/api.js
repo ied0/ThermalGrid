@@ -1,6 +1,6 @@
 // Backend'e istek atan yardimci fonksiyonlar tek yerde toplandi.
 // Backend 8001'de calisiyor (8000'i baska proje kullaniyordu).
-export const BASE_URL = "http://localhost:8001";
+export const BASE_URL = "https://thermal-grid-8ilf-5rucfn2s6-infernale.vercel.app";
 
 // foto_url backend'den "/static/uploads/x.png" gibi geliyor.
 // Bunu tam adrese cevirmek icin kucuk yardimci (img src'de kullanacagiz).
