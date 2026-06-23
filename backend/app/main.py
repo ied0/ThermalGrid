@@ -37,7 +37,7 @@ app.include_router(siparisler.router)
 
 # Yuklenen fotograflari /static altinda disariya servis ediyoruz.
 # Klasor yoksa olusturuyoruz ki StaticFiles hata vermesin.
-os.makedirs("static/uploads", exist_ok=True)
+os.makedirs("/tmp/uploads", exist_ok=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
