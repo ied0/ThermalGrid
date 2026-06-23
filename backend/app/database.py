@@ -16,6 +16,12 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# Neon gibi yerlerden gelen URL bazen "postgresql://" seklinde oluyor.
+# SQLAlchemy bunu gorunce eski psycopg2 surucusunu ariyor (bizde yok, v3 var).
+# O yuzden on eki "postgresql+psycopg://" yapip psycopg v3 kullanmasini sagliyoruz.
+if DATABASE_URL and DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
+
 # Postgres'e baglanan engine
 engine = create_engine(DATABASE_URL)
 
